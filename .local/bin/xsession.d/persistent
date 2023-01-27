@@ -1,0 +1,4 @@
+#!/usr/bin/env invoke-restartable
+
+set -x
+pulseaudio &

@@ -1,0 +1,61 @@
+{
+  "files" : "mk mak /makefile /Makefile /makefile.gnu /makefile.gcc /makefile.bor /makefile.msc /makefile.vc /makefile.dm /makefile.bcc /makefile.fpc",
+  "style_Comment" : {
+    "font_color" : "$00609F60",
+    "font_style" : "",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_String" : {
+    "font_color" : "$007777C4",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Symbol" : {
+    "font_color" : "$00B7FFFF",
+    "font_style" : "",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Param" : {
+    "font_color" : "$0051B9D6",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Id" : {
+    "font_color" : "$00D1D1D1",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Id keyword" : {
+    "font_color" : "$00D18B4F",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Value" : {
+    "font_color" : "$004ECE8A",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  },
+  "style_Label" : {
+    "font_color" : "$007F90EB",
+    "brd_c_l" : "clNone",
+    "brd_c_r" : "clNone",
+    "brd_c_t" : "clNone",
+    "brd_c_b" : "clNone"
+  }
+}

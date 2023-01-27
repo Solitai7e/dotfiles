@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=X-XFCE-Helper
+Name=XFCE Default File Manager
+NoDisplay=true
+Icon=system-file-manager
+X-XFCE-Category=FileManager
+X-XFCE-Commands=nemo
+X-XFCE-CommandsWithParameter=nemo "%s"

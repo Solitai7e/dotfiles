@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Asteris
+Comment=Based on Plata-Noir-Compact
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Type=X-GNOME-Metatheme
+GtkTheme=Asteris
+MetacityTheme=Asteris
+IconTheme=Adwaita
+CursorTheme=Adwaita

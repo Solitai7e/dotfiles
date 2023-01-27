@@ -1,0 +1,12 @@
+Net/ThemeName     "Asteris"
+Net/IconThemeName "Papirus-Dark"
+
+Gtk/OverlayScrolling 0
+Gtk/MenuImages       1
+Gtk/ButtonImages     1
+Gtk/DialogsUseHeader 1
+
+Gtk/ToolbarStyle "GTK_TOOLBAR_BOTH_HORIZ"
+
+Gtk/RecentFilesEnabled 0
+Net/EnableEventSounds  0

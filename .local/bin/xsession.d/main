@@ -1,0 +1,26 @@
+#!/usr/bin/env invoke-restartable
+
+set -x
+
+
+export QT_QPA_PLATFORMTHEME=gtk2
+
+
+nitrogen --restore --force-setter=xwindows
+
+xsettingsd &
+
+xset -dpms s off
+xss-lock physlock &
+
+marco --sm-disable --replace &
+
+xfce4-panel --sm-client-disable -d &
+nemo-desktop &
+
+xcape -d -e 'Super_L=Alt_L|F1;Super_R=Alt_L|F1' > /dev/null 2>&1 &
+sxhkd &
+
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+nm-applet &

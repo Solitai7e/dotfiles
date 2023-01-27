@@ -1,0 +1,3 @@
+.xfce4-panel .toggle > image {
+    -gtk-icon-transform: scale(0.8);
+}

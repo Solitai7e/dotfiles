@@ -1,0 +1,3 @@
+#!/usr/bin/env invoke-wrapper
+
+exec "$target" -c "$@"

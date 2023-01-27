@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec ~/.local/bin/xsession.d/main

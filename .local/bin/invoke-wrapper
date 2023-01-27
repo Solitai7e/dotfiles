@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+target="$(
+    wrappers_dir="$(dirname "$1")"
+
+    export PATH="$(
+        echo "$PATH" |
+        sed -E "s#(.+:)?$wrappers_dir:?##gm;t;d"
+    )"
+
+    which "$(basename "$1")"
+)"
+
+wrapper="$1"; shift
+
+
+. "$wrapper" "$@"

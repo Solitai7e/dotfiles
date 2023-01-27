@@ -1,0 +1,10 @@
+#!/usr/bin/env invoke-wrapper
+
+set -e
+
+
+"$target" "$@"
+
+# Workaround for the menu not focusing itself on activation
+sleep 0.1
+wmctrl -a "Whisker Menu" -F

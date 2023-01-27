@@ -1,0 +1,14 @@
+super + q
+	reload-xsession
+
+~button2
+	;xsel -npc
+
+alt + F1
+	xfce4-popup-whiskermenu
+
+super + l
+	xset s activate
+
+Print
+	xfce4-screenshooter -cf

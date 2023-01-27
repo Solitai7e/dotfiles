@@ -1,0 +1,15 @@
+#!/usr/bin/env invoke-wrapper
+
+exec "$target" \
+	--ignore-gpu-blocklist \
+	--force-dark-mode \
+	--enable-features=WebUIDarkMode,Vulkan,RawDraw,CanvasOopRasterization,VaapiVideoEncoder,VaapiVideoDecoder \
+	\
+	--show-avatar-button=incognito-and-guest \
+	--disable-search-engine-collection \
+	--extension-mime-request-handling=always-prompt-for-install \
+	--load-media-router-component-extension=0 \
+	\
+	--custom-ntp="data:text/html;base64,PCFET0NUWVBFIGh0bWw+PHRpdGxlPk5ldyBUYWI8L3RpdGxlPjxzdHlsZT5odG1se2JhY2tncm91bmQ6IzIwMjEyNH08L3N0eWxlPgo=" \
+	\
+	"$@"

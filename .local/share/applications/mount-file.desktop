@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Mount
+NoDisplay=true
+Icon=drive-removable-media
+Exec=udisksctl loop-setup -r -f %f
+MimeType=application/x-cd-image;application/x-raw-disk-image;
+StartupNotify=false

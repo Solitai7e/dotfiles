@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Set as Wallpaper
+Exec=nitrogen --set-zoom-fill --save %F
+Icon-Name=image-x-generic
+Selection=single
+Mimetypes=image/*;
+EscapeSpaces=true
