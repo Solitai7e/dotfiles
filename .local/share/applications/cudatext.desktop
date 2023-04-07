@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=CudaText
-Comment=Text and code editor
-Icon=cudatext-512
-Exec=cudatext %F
-MimeType=text/plain;
-Categories=Development;TextEditor;
-StartupNotify=false
