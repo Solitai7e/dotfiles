@@ -8,5 +8,6 @@ Gtk/DialogsUseHeader 1
 
 Gtk/ToolbarStyle "GTK_TOOLBAR_BOTH_HORIZ"
 
+Gtk/EnablePrimaryPaste 0
 Gtk/RecentFilesEnabled 0
 Net/EnableEventSounds  0
