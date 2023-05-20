@@ -1,0 +1,15 @@
+#!/usr/bin/env invoke-wrapper
+
+
+active_desktop="$(wmctrl -d | awk '$2 == "*" {print $1}')"
+
+instances="$(
+    wmctrl -lx |
+    awk -vd="$active_desktop" '$3 == "vscodium.VSCodium" && $2 == d'
+)"
+
+
+if [ -z "$instances" ]
+    then exec "$target" "$@"
+    else exec "$target" -r "$@"
+fi

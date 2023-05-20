@@ -1,2 +1,8 @@
-export PATH="$HOME/.local/bin/overrides:$HOME/.local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/sbin:/sbin"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/overrides:$PATH"
+
+
 export LESSHISTFILE=-
