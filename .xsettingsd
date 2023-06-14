@@ -1,5 +1,5 @@
-Net/ThemeName     "Asteris"
-Net/IconThemeName "Papirus-Dark"
+Net/ThemeName     "Yaru-dark"
+Net/IconThemeName "Yaru-dark"
 
 Gtk/OverlayScrolling 0
 Gtk/MenuImages       1

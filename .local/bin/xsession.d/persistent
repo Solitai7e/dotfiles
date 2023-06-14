@@ -1,4 +1,8 @@
 #!/usr/bin/env invoke-restartable
 
 set -x
-pulseaudio &
+
+
+pipewire &
+wireplumber &
+pipewire-pulse &

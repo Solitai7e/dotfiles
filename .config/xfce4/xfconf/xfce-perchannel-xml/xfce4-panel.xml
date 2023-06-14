@@ -33,17 +33,12 @@
       <property name="mode" type="uint" value="0"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="background-alpha" type="uint" value="95"/>
-      <property name="enter-opacity" type="uint" value="100"/>
-      <property name="background-style" type="uint" value="1"/>
+      <property name="enter-opacity" type="uint" value="90"/>
+      <property name="background-style" type="uint" value="0"/>
       <property name="icon-size" type="uint" value="0"/>
-      <property name="background-rgba" type="array">
-        <value type="double" value="0.031373"/>
-        <value type="double" value="0.031373"/>
-        <value type="double" value="0.031373"/>
-        <value type="double" value="1.000000"/>
-      </property>
-      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="90"/>
     </property>
+    <property name="dark-mode" type="bool" value="true"/>
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-1" type="string" value="whiskermenu"/>
@@ -129,8 +124,9 @@
     </property>
     <property name="plugin-19" type="string" value="clock">
       <property name="tooltip-format" type="string" value="%A, %B %d, %Y"/>
-      <property name="digital-format" type="string" value="%I:%M %p"/>
-      <property name="timezone" type="string" value=""/>
+      <property name="digital-time-format" type="string" value="%I:%M %p"/>
+      <property name="digital-time-font" type="string" value="Sans Bold 10"/>
+      <property name="digital-layout" type="uint" value="3"/>
     </property>
     <property name="plugin-12" type="string" value="launcher">
       <property name="items" type="array">

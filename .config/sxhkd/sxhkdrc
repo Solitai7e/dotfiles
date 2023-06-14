@@ -12,3 +12,6 @@ super + l
 
 Print
 	xfce4-screenshooter -cf
+
+super + b
+	xfce4-popup-clipman
