@@ -22,5 +22,7 @@
     "workbench.editor.untitled.hint": "hidden",
     "explorer.confirmDragAndDrop": false,
     "security.workspace.trust.startupPrompt": "never",
-    "window.openFilesInNewWindow": "default"
+    "window.openFilesInNewWindow": "default",
+    "window.commandCenter": false,
+    "editor.tabSize": 2
 }

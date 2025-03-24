@@ -2,14 +2,17 @@
 
 exec "$target" \
 	--ignore-gpu-blocklist \
-	--force-dark-mode \
-	--enable-features=WebUIDarkMode,Vulkan,RawDraw,CanvasOopRasterization,VaapiVideoEncoder,VaapiVideoDecoder \
+	--enable-features=Vulkan,CanvasOopRasterization,VaapiVideoEncoder,VaapiVideoDecoder \
 	\
+	--start-maximized \
 	--show-avatar-button=incognito-and-guest \
 	--disable-search-engine-collection \
 	--extension-mime-request-handling=always-prompt-for-install \
 	--load-media-router-component-extension=0 \
+	--webrtc-ip-handling-policy=default_public_interface_only \
 	\
 	--custom-ntp="data:text/html;base64,PCFET0NUWVBFIGh0bWw+PHRpdGxlPk5ldyBUYWI8L3RpdGxlPjxzdHlsZT5odG1se2JhY2tncm91bmQ6IzIwMjEyNH08L3N0eWxlPgo=" \
+	\
+	--remote-debugging-port=9229 \
 	\
 	"$@"

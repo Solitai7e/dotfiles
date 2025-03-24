@@ -1,1 +1,27 @@
-/usr/share/applications/org.gnome.Terminal.desktop
+[Desktop Entry]
+Name=Terminal
+Comment=Use the command line
+Keywords=shell;prompt;command;commandline;cmd;
+TryExec=gnome-terminal
+Exec=sh -c 'cd ~/Desktop && gnome-terminal'
+Icon=org.gnome.Terminal
+Type=Application
+Categories=GNOME;GTK;System;TerminalEmulator;
+StartupNotify=true
+StartupWMClass=Gnome-terminal
+X-GNOME-SingleWindow=false
+OnlyShowIn=GNOME;Unity;
+Actions=new-window;preferences;
+X-ExecArg=--
+X-XFCE-Source=file:///usr/share/applications/org.gnome.Terminal.desktop
+
+Path=
+Terminal=false
+
+[Desktop Action new-window]
+Name=New Window
+Exec=gnome-terminal --window
+
+[Desktop Action preferences]
+Name=Preferences
+Exec=gnome-terminal --preferences

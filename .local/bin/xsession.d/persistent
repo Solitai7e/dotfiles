@@ -1,7 +1,5 @@
-#!/usr/bin/env invoke-restartable
-
+#!/usr/bin/env daemonarius
 set -x
-
 
 pipewire &
 wireplumber &

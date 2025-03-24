@@ -1,0 +1,37 @@
+#!/bin/sh
+# A poor man's daemon manager.
+#
+# Although not strictly required, this script is meant to be invoked from a
+# shebang in another sh-compatible script like so: #!/usr/bin/env daemonarius
+#
+# The invoking script will itself be sourced, where it is then expected to
+# spawn one or more background processes.
+#
+# Afterwards the script will hang until one of the following occurs:
+# 1. The spawned child processes terminate (or if none were spawned):
+#   -> The script exits.
+# 2. SIGHUP/SIGINT/SIGTERM is received:
+# 	-> The spawned child processes are killed, after which the script exits.
+# 3. SIGUSR1 is received:
+#   -> The spawned child processes are killed and the invoking script is
+#      sourced again to respawn them, after which hanging resumes.
+#
+# If an invocation's arguments match those of another running instance's,
+# it will send a SIGUSR1 to the running instance and exit. Effectively
+# restarting it.
+
+if [ $# = 0 ]; then
+	echo "Usage: $(basename $0) SCRIPT_FILE" >&2
+	exit 1
+fi
+[ $# -gt 1 ] && exec "$0" "$1" # discard extraneous arguments
+
+if kill -USR1 "$(pgrep -u "$USER" -oxf "/bin/sh $0 $1" | grep -Fv $$)" 2> /dev/null; then
+	echo "Restarted an existing instance, exiting..." >&2
+	exit
+fi
+
+trap 'pkill -P $$; wait; exit 0' HUP INT TERM
+trap 'pkill -P $$; wait; exec "$0" "$1"' USR1
+. "$1"
+wait

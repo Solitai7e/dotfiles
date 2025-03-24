@@ -1,13 +1,11 @@
-#!/usr/bin/env invoke-restartable
-
+#!/usr/bin/env daemonarius
 
 scripts_dir=~/.local/bin/xsession.d
 logs_dir=~/.local/share/xsession
-
 mkdir -p "$logs_dir"
 
 IFS=/
 for s in $(find "$scripts_dir" -type f -exec basename {} \; | tr '\n' /); do
-    mv -f "$logs_dir/$s.log" "$logs_dir/$s.log.old"
-    "$scripts_dir/$s" > "$logs_dir/$s.log" 2>&1 &
+	mv -f "$logs_dir/$s.log" "$logs_dir/$s.log.old"
+	"$scripts_dir/$s" > "$logs_dir/$s.log" 2>&1 &
 done

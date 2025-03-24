@@ -1,20 +1,16 @@
-#!/usr/bin/env invoke-restartable
-
+#!/usr/bin/env daemonarius
 set -x
 
-
+export NO_AT_BRIDGE=1
 export QT_QPA_PLATFORMTHEME=gtk2
 
-
-nitrogen --restore --force-setter=xwindows
+xwallpaper --zoom ~/Pictures/1454722946236.jpg
 
 xsettingsd &
-
 xset -dpms s off
-xss-lock physlock &
+#xss-lock physlock &
 
 marco --sm-disable --replace &
-
 xfce4-panel --sm-client-disable -d &
 nemo-desktop &
 

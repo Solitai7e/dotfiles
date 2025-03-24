@@ -7,10 +7,9 @@ Exec=chromium %U
 Actions=new-window;new-private-window;
 MimeType=text/html;text/xml;application/xhtml_xml;application/x-mimearchive;x-scheme-handler/http;x-scheme-handler/https;
 Categories=Network;WebBrowser;
-StartupNotify=true
+StartupNotify=false
 StartupWMClass=chromium
 X-MultipleArgs=false
-
 
 [Desktop Action new-window]
 Name=New Window

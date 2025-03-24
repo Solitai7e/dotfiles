@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+sudo apt update
+sudo apt full-upgrade --autoremove --purge
+sudo apt clean
