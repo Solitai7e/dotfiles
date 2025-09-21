@@ -1,0 +1,7 @@
+[global]
+font="Sans 10"
+background="#000000CC"
+frame_color="#944fff"
+frame_width=2
+offset=27x36
+gap_size=10

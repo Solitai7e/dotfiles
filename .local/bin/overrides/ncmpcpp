@@ -1,0 +1,2 @@
+#!/usr/bin/env invoke-wrapper
+exec x-terminal-app "$0" "$@"

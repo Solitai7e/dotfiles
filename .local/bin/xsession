@@ -1,0 +1,14 @@
+#!/usr/bin/env daemonarius
+
+scripts_dir=~/.local/bin/xsession.d
+logs_dir=~/.local/share/xsession
+mkdir -p "$logs_dir"
+
+# HACK: if we pipe into a while-read loop here the body of the
+#       loop will execute in a subshell and the scripts will
+#       NOT be spawned as children of this process.
+IFS=/
+for s in $(find "$scripts_dir" -type f -exec basename {} \; | tr '\n' /); do
+	mv -f "$logs_dir/$s.log" "$logs_dir/$s.log.old" || :
+	"$scripts_dir/$s" > "$logs_dir/$s.log" 2>&1 &
+done

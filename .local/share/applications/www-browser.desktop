@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Web Browser
+Comment=Access the Internet
+Icon=x-www-browser
+Exec=x-www-browser %U
+Categories=Network;WebBrowser;
+StartupNotify=false
+X-MultipleArgs=false
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml_xml;application/x-mimearchive;x-scheme-handler/http;x-scheme-handler/https;

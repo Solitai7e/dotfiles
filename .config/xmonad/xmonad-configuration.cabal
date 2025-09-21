@@ -1,0 +1,17 @@
+cabal-version: 3.0
+name:          xmonad-configuration
+version:       0.0.0.0
+build-type:    Simple
+
+common warnings
+  ghc-options: -Wall
+
+executable xmonad
+  import: warnings
+  main-is: Main.hs
+  hs-source-dirs: src
+  build-depends: base ^>=4.18.3.0,
+                 xmonad >=0.18.0,
+                 xmonad-contrib >=0.18.1,
+                 containers >=0.6.7
+  default-language: GHC2021

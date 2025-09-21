@@ -1,0 +1,70 @@
+unset BASH_ENV
+
+lf-eval() {
+  lf -remote "send $id $*"
+}
+lines() {
+  for arg in "$@"; do echo "$arg"; done
+}
+each() {
+  while read arg; do "$@" "$arg"; done
+}
+quote() {
+  echo "'${1//\'/\'\\\'\'}'"
+}
+lc() {
+  if [ $# -gt 0 ]
+    then lines "$@" | lc
+    else tr '[:upper:]' '[:lower:]'
+  fi
+}
+trim() {
+  if [ $# -gt 0 ]
+    then lines "$@" | trim
+    else sed 's/^ *//; s/ *$//'
+  fi
+}
+confirm() {
+  local prompt default
+  case $# in
+    1) prompt="$1" ;;
+    2) default="$(lc "$1")"; prompt="$2" ;;
+    *) echo "invalid number of arguments" >&2
+  esac
+  printf "%s " "$prompt"
+  case "$default" in
+    y) printf "[Y/n] " ;;
+    n) printf "[y/N] " ;;
+    *) printf "[y/n] " ;;
+  esac
+  while :; do
+    local answer="$(head -n1 | trim | lc)"
+    case "${answer:-$default}" in
+      y) return 0 ;;
+      n) return 1 ;;
+      *) printf 'Please answer "y" or "n" ' >&2 ;;
+    esac
+  done
+}
+jump() {
+  local path="$(eopen -P "$1")"
+  if [ -d "$path" ]; then
+    lf-eval ":cd $(quote "$path")"
+  else
+    lf-eval ":select $(quote "$path")"
+    eopen "$path"
+  fi
+}
+is_trashable() {
+  local path="$(realpath -s "$1")"
+  [[ "$(readlink -f "$(dirname "$path")")" =~ "$HOME/"* ]]
+}
+delete() {
+  for path in "$@"; do
+    if is_trashable "$path"; then
+      gio trash -- "$path"
+    else
+      notify-send "TODO: delete $path"
+    fi
+  done
+}

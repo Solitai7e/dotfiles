@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=File Manager
+Comment=Manage Files
+Icon=x-file-manager
+Exec=x-terminal-emulator -e lf %F
+StartupNotify=false
+X-MultipleArgs=false
+MimeType=inode/directory

@@ -1,0 +1,28 @@
+*.background: #000000
+*.foreground: #e3e3e3
+*.windowOpacity: 0.8
+*.cursorColor: #dddddd
+*.color0:  #000000
+*.color8:  #707070
+*.color1:  #ff5649
+*.color9:  #ff5649
+*.color2:  #00e774
+*.color10: #00e774
+*.color3:  #ffce41
+*.color11: #ffce41
+*.color4:  #13b8ff
+*.color12: #13b8ff
+*.color5:  #ff79df
+*.color13: #ff79df
+*.color6:  #5edfff
+*.color14: #5edfff
+*.color7:  #dddddd
+*.color15: #ffffff
+
+*.primaryColor: #ff3393
+*.secondaryColor: #ffff70
+*.tertiaryColor: #e7abff
+*.inactiveColor: #444444
+
+Emacs.font: Monospace 11
+Emacs.alphaBackground: 80

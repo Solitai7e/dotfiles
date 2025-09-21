@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+quotemeta() {
+  perl -s -e 'print quotemeta($ARGV[0]) . "\n"' -- "$1"
+}
+
+wm_class="$1.XTerminalApp"
+
+if ! [ -t 0 ] && [ -n "$DISPLAY" ]; then
+  window="$(xdotool search --class "$(quotemeta "$wm_class")" || :)"
+  [ -n "$window" ] && exec xdotool windowactivate "$window"
+  exec x-terminal-emulator --class "$wm_class" -e "$@"
+else
+  exec "$@"
+fi

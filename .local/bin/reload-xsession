@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "$1" = "-f" ]; then
+  exec xsession
+else
+  xmonad --restart
+  exec ~/.local/bin/xsession.d/transient
+fi

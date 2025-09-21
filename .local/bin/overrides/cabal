@@ -1,0 +1,5 @@
+#!/usr/bin/env invoke-wrapper
+
+# HACK: `cabal build` fails if `cabal update` has never been run before
+[ -d "${XDG_CACHE_HOME:-$HOME/.cache}/cabal/packages" ] || "$0" update
+exec "$0" "$@"

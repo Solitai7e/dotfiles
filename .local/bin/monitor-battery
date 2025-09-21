@@ -1,0 +1,49 @@
+#!/bin/bash
+set -e -o pipefail
+
+guess_default_battery() {
+  dbus-send --print-reply --system \
+            --dest=org.freedesktop.UPower \
+            /org/freedesktop/UPower \
+            org.freedesktop.UPower.EnumerateDevices \
+    | awk '/^ +object +path / {
+        match($3, /battery_[^/]+"$/);
+        print substr($3, RSTART, RLENGTH - 1);
+        exit;
+      }'
+}
+query_property() {
+  dbus-send --print-reply --system \
+            --dest=org.freedesktop.UPower \
+            "/org/freedesktop/UPower/devices/$device" \
+            org.freedesktop.DBus.Properties.Get \
+            string:org.freedesktop.UPower.Device \
+            "string:$1" \
+    | tail -n1
+}
+query_percentage() {
+  query_property Percentage | awk '/^ +variant +double / {print $NF}'
+}
+query_state() {
+  query_property State | awk '/^ +variant +uint32 / {print $NF}'
+}
+
+device="${1:-$(guess_default_battery)}"
+trap 'pkill -P $$; wait' HUP INT TERM
+
+dbus-monitor --system \
+             "type='signal',
+              interface='org.freedesktop.DBus.Properties',
+              member='PropertiesChanged',
+              path_namespace='/org/freedesktop/UPower/devices/$device'" \
+  | while read l; do
+    [[ $l == "signal "* ]] || continue
+    state="$(query_state)"
+    percentage=$(($(query_percentage)))
+    if   [ "$state" = 1 ];         then icon=""
+    elif [ "$percentage" -gt 80 ]; then icon=""
+    elif [ "$percentage" -gt 50 ]; then icon=""
+    else                                icon=""; fi
+    echo "$icon [<fc=#ffff70>$percentage%</fc>]"
+  done &
+wait

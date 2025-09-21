@@ -1,0 +1,2 @@
+constraints: xmobar +with_xrender +with_alsa
+ignore-project: False

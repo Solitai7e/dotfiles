@@ -1,0 +1,11 @@
+daemonize = false
+
+[desktop_notification]
+enable = false
+
+[watcher]
+enable_clipboard = true
+enable_primary = false
+
+[grpc]
+enable_http = false

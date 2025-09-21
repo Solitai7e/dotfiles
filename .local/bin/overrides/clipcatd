@@ -1,0 +1,7 @@
+#!/usr/bin/env invoke-wrapper
+
+XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
+pkill -u "$(id -u)" -x clipcatd || :
+rm -rf "$XDG_RUNTIME_DIR/clipcat" "$XDG_RUNTIME_DIR/clipcatd.pid"
+exec "$0" "$@"

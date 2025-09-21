@@ -1,0 +1,23 @@
+#!/usr/bin/env invoke-wrapper
+
+exec "$0" \
+     -o "window.opacity=$(xrdb -get windowOpacity)" \
+     -o "colors.primary.background=\"$(xrdb -get background)\"" \
+     -o "colors.primary.foreground=\"$(xrdb -get foreground)\"" \
+     -o "colors.normal.black=\"$(xrdb -get color0)\"" \
+     -o "colors.normal.red=\"$(xrdb -get color1)\"" \
+     -o "colors.normal.green=\"$(xrdb -get color2)\"" \
+     -o "colors.normal.yellow=\"$(xrdb -get color3)\"" \
+     -o "colors.normal.blue=\"$(xrdb -get color4)\"" \
+     -o "colors.normal.magenta=\"$(xrdb -get color5)\"" \
+     -o "colors.normal.cyan=\"$(xrdb -get color6)\"" \
+     -o "colors.normal.white=\"$(xrdb -get color7)\"" \
+     -o "colors.bright.black=\"$(xrdb -get color8)\"" \
+     -o "colors.bright.red=\"$(xrdb -get color9)\"" \
+     -o "colors.bright.green=\"$(xrdb -get color10)\"" \
+     -o "colors.bright.yellow=\"$(xrdb -get color11)\"" \
+     -o "colors.bright.blue=\"$(xrdb -get color12)\"" \
+     -o "colors.bright.magenta=\"$(xrdb -get color13)\"" \
+     -o "colors.bright.cyan=\"$(xrdb -get color14)\"" \
+     -o "colors.bright.white=\"$(xrdb -get color15)\"" \
+     "$@"

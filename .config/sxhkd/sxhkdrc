@@ -1,0 +1,83 @@
+mod3 + alt + Delete
+  quit-xsession
+
+mod3 + r
+  reload-xsession
+
+alt + Tab
+  jump-to-window
+
+mod3 + c
+	cd ~/Desktop; x-terminal-emulator
+
+mod3 + e
+  eopen
+
+mod3 + semicolon
+	dmenu_run
+
+super + space
+  fcitx5-remote -t
+
+mod3 + b
+  clipboard-menu
+
+XF86AudioLowerVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+XF86AudioRaiseVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+XF86AudioMute
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+XF86AudioPlay
+  notify-send "TODO: XF86AudioPlay"
+
+XF86AudioPrev
+  notify-send "TODO: XF86AudioPrev"
+
+XF86AudioNext
+  notify-send "TODO: XF86AudioNext"
+
+XF86MonBrightnessDown
+  brightnessctl set -- -10%
+
+XF86MonBrightnessUp
+  brightnessctl set -- +10%
+
+mod3 + F12
+  dunstctl set-paused toggle
+
+Print ; Print
+  maim -u | clipboard-put -f -t image/png
+
+Print ; button1
+  maim -n 1 -us | clipboard-put -f -t image/png
+
+alt + Print
+  maim -d "$(dmenu -p "Delay in seconds:" < /dev/null)" | clipboard-put -f -t image/png
+
+mod3 + alt + l
+  xset s activate
+
+mod3 + space ; e
+  emacsclient -c
+
+mod3 + space ; w
+  x-www-browser
+
+mod3 + space ; f
+  x-terminal-emulator -e lf
+
+mod3 + space ; a
+  x-terminal-emulator -e pulsemixer
+
+mod3 + space ; t
+  x-terminal-emulator -e btop
+
+mod3 + space ; m
+  ncmpcpp
+
+mod3 + space ; k
+  x-terminal-emulator -e keepassxc-cli open ~/Documents/KeePass.kdbx

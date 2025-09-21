@@ -1,0 +1,6 @@
+#!/usr/bin/env invoke-wrapper
+
+if [ "$TERM" = alacritty ]; then
+  export TERM=xterm-256color
+fi
+exec "$0" "$@"

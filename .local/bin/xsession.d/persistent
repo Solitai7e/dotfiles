@@ -1,0 +1,10 @@
+#!/usr/bin/env daemonarius
+set -x
+
+xmonad &
+fcitx5 &
+pipewire &
+wireplumber &
+pipewire-pulse &
+emacs --fg-daemon &
+mpd --no-daemon &

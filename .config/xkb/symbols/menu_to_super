@@ -1,0 +1,4 @@
+hidden partial modifier_keys
+xkb_symbols "menu_to_super" {
+  key <MENU> { [Super_R] };
+};

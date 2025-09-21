@@ -1,0 +1,2 @@
+#!/bin/sh
+exec chromium --app="${1:-https://www.google.com/?gl=US}"

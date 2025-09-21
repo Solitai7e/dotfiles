@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e -o pipefail
+
+min() {
+  local result=0
+  for arg in "$@"; do
+    [ $(($arg)) -lt $result ] && result=$(($arg))
+  done
+  echo $result
+}
+query_man_pages() {
+  apropos "" | awk '{print $1$2}' | sort
+}
+dmenu_apropos() {
+  query_man_pages | dmenu -p "Man" "$@"
+}
+emacs_man() {
+  emacsclient -ne "(man \"${*}\")"
+}
+
+name="${1:-$(dmenu_apropos)}"
+#emacs_man "$name"
+columns="$(min "$(tput cols)" 76)"
+x-terminal-emulator -e bash -c "COLUMNS=$columns exec man \"\$@\"" -- "$name"

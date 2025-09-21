@@ -1,0 +1,2 @@
+#!/bin/sh
+exec clipcat-menu -fdmenu --dmenu-extra-arguments="-p,Clipboard"

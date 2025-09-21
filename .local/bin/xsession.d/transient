@@ -1,0 +1,24 @@
+#!/usr/bin/env daemonarius
+set -x
+
+#xrandr --output HDMI-2 --pos 0x0 --primary \
+#       --output HDMI-1 --pos 1920x0
+#xwallpaper --output HDMI-2 --tile ~/Pictures/Wallpapers/niko.png \
+#           --output HDMI-1 --tile ~/Pictures/Wallpapers/niko.png --trim 1366x768+1920+0
+xrandr --output eDP-1 --mode 1600x900
+xwallpaper --zoom "$HOME/Pictures/niko.png"
+
+xrdb ~/.Xresources
+xset -dpms s off
+xss-lock -- i3lock -i ~/Pictures/Wallpapers/niko.png &
+
+xsettingsd &
+dunst &
+clipcatd --no-daemon &
+
+add-xkb-symbols capslock_to_hyper menu_to_super
+sxhkd &
+xcape -d -e "Hyper_L=Escape" > /dev/null 2>&1 &
+
+picom &
+xmobar &

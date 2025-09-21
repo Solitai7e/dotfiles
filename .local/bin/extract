@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+for file in "$@"; do
+  unar -nr "$file" || 7z x -o"${file}_extracted" "$file"
+done

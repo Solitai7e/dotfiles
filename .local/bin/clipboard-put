@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+while getopts "ft:" opt; do
+  case "$opt" in
+    f) read_from_file=1 ;;
+    t) mime_type="$OPTARG" ;;
+    ?) exit 1 ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
+if [ "$read_from_file" = 1 ]; then
+  file="${1:--}"
+  if [ "$file" = "-" ]; then
+    exec clipcatctl load -m "${mime_type:-text/plain}"
+  else
+    exec clipcatctl load -m "${mime_type:-$(file -b --mime-type "$file")}" -f "$file"
+  fi
+else
+  exec clipcatctl insert "$*"
+fi

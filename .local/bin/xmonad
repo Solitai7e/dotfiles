@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+cd "${XDG_CONFIG_HOME:-$HOME/.config}/xmonad"
+cabal build
+exec "$(cabal list-bin all)" "$@"

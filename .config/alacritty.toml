@@ -1,0 +1,10 @@
+[font]
+size = 9
+
+[keyboard]
+bindings = [
+  {key = "Escape", mods = "Alt", action = "ToggleViMode"},
+]
+
+[debug]
+prefer_egl = true

@@ -1,0 +1,6 @@
+hidden partial modifier_keys
+xkb_symbols "capslock_to_hyper" {
+  replace key <CAPS> { [ Hyper_L ], type[group1] = "ONE_LEVEL" };
+  modifier_map Mod3 { Hyper_L };
+};
+

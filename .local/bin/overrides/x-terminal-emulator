@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e -o pipefail
+
+args=()
+command=("$SHELL")
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-e" ] || [ "$1" = "--command" ]; then
+    command=("${@:2}")
+    break
+  fi
+  args+=("$1"); shift
+done
+
+exec alacritty "${args[@]}" -e bash -c '
+  printf "\033]0; %s\007" "$(tr -s "\n" " " <<< "$*")" > /dev/tty
+  exec "$@"
+' "" "${command[@]}"

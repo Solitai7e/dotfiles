@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e -o pipefail -x
+
+join() {
+  local separator="$1"; shift
+  while :; do
+    case $# in
+      0) break ;;
+      1) echo "$1"; break ;;
+      *) printf "%s" "$1$separator"; shift ;;
+    esac
+  done
+}
+query_default_symbols() {
+  setxkbmap -v -query | awk -F ": +" '$1 == "symbols" {print $2}'
+}
+apply_symbols() {
+  setxkbmap -symbols "$1" -print | xkbcomp -I"$HOME/.config/xkb" - "$DISPLAY"
+}
+
+apply_symbols "$(join "+" "$(query_default_symbols)" "$@")"

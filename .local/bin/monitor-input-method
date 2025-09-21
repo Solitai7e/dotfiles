@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e -o pipefail
+
+trap 'pkill -P $$; wait' HUP INT TERM
+dbus-monitor "type='method_call',
+              interface='org.fcitx.Fcitx.Controller1',
+              member='Toggle'" \
+  | while read line; do
+    echo -e "\uF11C [<fc=#ffff70>$(fcitx5-remote -n)</fc>]"
+  done &
+wait

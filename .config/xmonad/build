@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+dest="$(realpath -s "$1")"; shift
+cd "${XDG_CONFIG_HOME:-$HOME/.config}/xmonad"
+cabal build
+mkdir -p "$(dirname "$dest")"
+ln -sfr "$(cabal list-bin all)" "$dest"
